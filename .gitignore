@@ -4,3 +4,4 @@ public/bundle.*
 yarn-error.log
 
 .vscode
+coverage

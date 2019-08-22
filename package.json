@@ -13,7 +13,7 @@
     "@testing-library/svelte": "^1.8.0",
     "@types/jest": "^24.0.18",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/parser": "^1.13.0",
+    "@typescript-eslint/parser": "^2.0.0",
     "babel-jest": "^24.9.0",
     "babel-plugin-lodash": "^3.3.4",
     "eslint": "^6.2.1",
@@ -30,7 +30,8 @@
     "rollup-plugin-livereload": "^1.0.1",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-svelte": "^5.1.0",
-    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-terser": "^5.1.1",
+    "surge": "^0.21.3",
     "svelte": "^3.9.1",
     "typescript": "^3.5.3"
   },
@@ -54,6 +55,8 @@
     "lint:eslint": "eslint '**/*.{js,ts,svelte}'",
     "lint:prettier": "prettier --check '**/*.{js,ts,svelte,json,md,css}'",
     "lint:types": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "npm-run-all lint build deploy-surge",
+    "deploy-surge": "surge public --domain https://your-domain-here.surge.sh"
   }
 }
