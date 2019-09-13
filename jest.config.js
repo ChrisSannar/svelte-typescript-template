@@ -1,7 +1,14 @@
+const svelteConfig = require("./svelte.config");
+
 module.exports = {
   transform: {
     "^.+\\.(ts|js)$": "babel-jest",
-    "^.+\\.svelte$": "jest-transform-svelte"
+    "^.+\\.svelte$": [
+      "jest-transform-svelte",
+      {
+        preprocess: svelteConfig.preprocess
+      }
+    ]
   },
   setupFilesAfterEnv: [
     "@testing-library/jest-dom/extend-expect",

@@ -1,13 +1,19 @@
 <script>
-  import { greeting } from "./greeting-store.ts";
+  import { greeting } from "./greeting-store";
 
   export let name;
 </script>
 
 <style>
   h1 {
-    color: purple;
+    color: rebeccapurple;
+
+    &:hover {
+      color: black;
+    }
   }
 </style>
 
-<h1>{$greeting} {name}!</h1>
+<div>
+  <h1>{$greeting} {name}!</h1>
+</div>

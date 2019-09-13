@@ -5,6 +5,9 @@ import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import babel from "rollup-plugin-babel";
 
+// Unclear why, but importing this failes.
+const svelteConfig = require("./svelte.config"); // eslint-disable-line
+
 const production = !process.env.ROLLUP_WATCH;
 
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
@@ -25,7 +28,9 @@ export default {
       // a separate file — better for performance
       css: css => {
         css.write("public/bundle.css");
-      }
+      },
+      // Add shared config like preprocessors.
+      ...svelteConfig
     }),
 
     // node_modules
